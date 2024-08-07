@@ -1,20 +1,23 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.kosavpa.pmcontroller</id>
-    <name>pm-controller</name>
+    <id>com.github.kosavpa.pcontroller</id>
+    <name>p-controller</name>
     <vendor>kosavpa</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.kosavpa.pmcontroller.toolWindow.MyToolWindowFactory"
-                    id="MyToolWindow"/>
-    </extensions>
+    <actions>
+        <action
+                id="com.github.kosavpa.pcontroller.actions.OutputConfigAction"
+                class="com.github.kosavpa.pcontroller.actions.OutputConfigAction"
+                text="Project Controller"
+                description="Put output directory path, in which project log files will be created">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
 
     <applicationListeners>
-        <listener class="com.github.kosavpa.pmcontroller.listeners.MyApplicationActivationListener"
+        <listener class="com.github.kosavpa.pcontroller.listeners.MyApplicationActivationListener"
                   topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>
